@@ -1,0 +1,20 @@
+/*the goal of this program is to display bitvalues and their corresponding voltages 
+using a potentiometer to change the bit values*/
+
+void setup() {
+  Serial.begin(9600);//initialize serial comunication at 9600 bits per second:
+
+}
+
+void loop() {
+int bitValue= analogRead(A3);// read the potentiometer on A3:
+ float x = bitValue; //give bitvalues in decimals:
+float y = 0.005 * x; //give voltage values in decimals:
+
+Serial.print("bitValue =  ");// display message on serial monitor:
+Serial.print(bitValue);//display PB values on seria monitor:
+
+Serial.print(" , Voltage = ");// display message on serial monitor:
+Serial.println(y); //display Voltage values on serial monitor:
+
+}
