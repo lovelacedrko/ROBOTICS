@@ -1,0 +1,43 @@
+/* the goal of this program is to display PB Values on the serial monitor and
+at the same time blinking an LED without delay*/
+int sensor;
+const int ledPin =  12;// the number of the LED pin
+int ledState = LOW;             // ledState used to set the LED
+unsigned long previousMillis = 0;        // will store last time LED was updated
+const long interval = 5000;           // interval at which to blink (milliseconds)
+
+
+void setup() {
+Serial.begin(9600);//initialize serial comunication at 9600 bits per second:
+pinMode(2,INPUT_PULLUP);  // setting pin 2 as input:
+pinMode(12, OUTPUT); // setting pin 12 aas output:
+
+}
+
+void loop() {
+ sensor = digitalRead(2);
+
+ Serial.print("PB value = ");// display message on serial monitor:
+Serial.println(sensor); // display pB values on seria monitor:
+delay(1);
+
+ unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+// save the last time you blinked the LED
+ previousMillis = currentMillis;
+
+ // if the LED is off turn it on and vice-versa:
+  if (ledState == LOW) {
+ ledState = HIGH;
+ } else {
+ledState = LOW;
+ }
+
+ // set the LED with the ledState of the variable:
+ digitalWrite(ledPin, ledState);
+ 
+ }
+ 
+}
+
