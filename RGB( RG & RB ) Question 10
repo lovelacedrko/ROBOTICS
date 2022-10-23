@@ -1,0 +1,32 @@
+/*The goal of this program is to turn the red and green light of the RGB ON when the 
+pushbutton is not pressed and the red and blue on when the pushbutton is pressed*/
+
+int sensor;
+
+void setup() {
+Serial.begin(9600);
+pinMode(2,INPUT_PULLUP);  //set pin 2 as input:
+pinMode(7, OUTPUT); // set red LED on pin 7 as an output:
+pinMode(6, OUTPUT); // set green LED on pin 6 as an output:
+pinMode(5, OUTPUT); // set blue LED on pin 5 as an ouput:
+}
+
+void loop() {
+  // if the PB is pressed the following will happen;
+if(sensor) { 
+  digitalWrite(7, HIGH); // red LED is on
+  digitalWrite(6, LOW); // green LED is off
+digitalWrite(5, HIGH); // blue LED is on
+}
+// if the PB is not pressed the following will happen;
+if(!sensor) {
+  digitalWrite(7, HIGH); // red LED is on:
+  digitalWrite(6, HIGH); //green LED is on:
+digitalWrite(5, LOW); // blue LED is off:
+}
+ sensor = digitalRead(2); //the arduino will read the values from the PB connected to pin 2
+
+ Serial.print("PB value = "); // print "PB value = "on the serial monitor:
+Serial.println(sensor); // print the sensor value on the serial monitor:
+delay(1);
+}
