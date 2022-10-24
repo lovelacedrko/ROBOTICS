@@ -1,0 +1,62 @@
+int potentiometer = A5;
+int led1pin = 2;// initialize led1 as pin 2 on arduino
+int led2pin = 3;// initialize led2 as pin 3 on arduino
+int led3pin = 4;// initialize led3 as pin 4 on arduino
+int led4pin = 5;// initialize led4 as pin 5 on arduino
+int led5pin = 6;// initialize led5 as pin 6 on arduino
+
+void setup() {
+  //setting pin as input
+ pinMode(potentiometer, INPUT);
+ //setting pins as outputs
+ pinMode(led1pin, OUTPUT); 
+pinMode(led2pin, OUTPUT); 
+pinMode(led3pin, OUTPUT); 
+pinMode(led4pin, OUTPUT); 
+pinMode(led5pin, OUTPUT);
+ }
+
+void loop() {
+ int potentiometerReading = analogRead(A5); // read the potentiometer on A0:
+Serial.println(potentiometerReading);// dislplay message on serial monitor
+if (potentiometerReading < 205)// if conditions are met, the following will happen:
+{
+digitalWrite(led1pin, HIGH);// led1 will turn on:
+digitalWrite(led2pin, LOW);// led2 will be off 
+digitalWrite(led3pin, LOW);// led3 will be off 
+digitalWrite(led4pin, LOW);// led4 will be off 
+digitalWrite(led5pin, LOW);// led5 will be off 
+}
+ if (potentiometerReading < 409);// if conditions are met, the following will happen:
+{
+digitalWrite(led1pin, HIGH);// led1 will be on
+digitalWrite(led2pin, HIGH);// led2 will be on 
+digitalWrite(led3pin, LOW);// led3 will be off 
+digitalWrite(led4pin, LOW);// led4 will be off 
+digitalWrite(led5pin, LOW);// led5 will be off 
+}
+ if (potentiometerReading < 614);// if conditions are met, the following will happen:
+{
+digitalWrite(led1pin, HIGH);// led1 will be on
+digitalWrite(led2pin, HIGH);// led2 will be on
+digitalWrite(led3pin, HIGH);// led3 will be on
+digitalWrite(led4pin, LOW);// led4 will be off
+digitalWrite(led5pin, LOW);// led5 will be off
+}
+ if (potentiometerReading < 818);// if conditions are met, the following will happen:
+{
+  digitalWrite(led1pin, HIGH);// led1 will be on
+digitalWrite(led2pin, HIGH);// led2 will be on
+digitalWrite(led3pin, HIGH);// led3 will be on
+digitalWrite(led4pin, HIGH);// led4 will be on
+digitalWrite(led5pin, LOW);// led5 will be on
+}
+ if (potentiometerReading < 1024);// if conditions are met, the following will happen:
+{
+  digitalWrite(led1pin, HIGH);// led1 will be on
+digitalWrite(led2pin, HIGH);// led2 will be on
+digitalWrite(led3pin, HIGH);// led3 will be on
+digitalWrite(led4pin, HIGH);// led4 will be on
+digitalWrite(led5pin, HIGH);// led5 will be on
+}
+}
