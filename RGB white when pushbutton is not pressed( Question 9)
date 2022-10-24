@@ -4,7 +4,7 @@ pushbutton is not pressed and off when the pushbutton is pressed */
 int sensor;
 
 void setup() {
-pinMode(2,INPUT_PULLUP);  //set pin 2 as input using internal resistor:
+pinMode(3,INPUT_PULLUP);  //set pin 2 as input using internal resistor:
 pinMode(13, OUTPUT);// set red LED on pin 7 as an output:
 pinMode(12, OUTPUT);// set green LED on pin 6 as an output:
 pinMode(11, OUTPUT);// set blue LED on pin 5 as an ouput:
