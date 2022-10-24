@@ -4,6 +4,7 @@ pushbutton is not pressed and the red and blue on when the pushbutton is pressed
 int sensor;
 
 void setup() {
+Serial.begin(9600);//initialize serial comunication at 9600 bits per second:
 pinMode(2,INPUT_PULLUP);  //set PB  on pin 2 as input using internal resistor:
 pinMode(7, OUTPUT); // set red LED on pin 7 as an output:
 pinMode(6, OUTPUT); // set green LED on pin 6 as an output:
@@ -23,5 +24,10 @@ if(!sensor) {
   digitalWrite(6, HIGH); //green LED is on:
 digitalWrite(5, LOW); // blue LED is off:
 }
+sensor = digitalRead(2);//the arduino will read the values from the PB connected to pin 2
+
+ Serial.print("PB value = ");// print "PB value = "on the serial monitor:
+Serial.println(sensor);// print the sensor value on the serial monitor:
+delay(1);
 
 }
